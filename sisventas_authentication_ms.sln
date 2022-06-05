@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sisventas_authentication_ms", "sisventas_authentication_ms\sisventas_authentication_ms.csproj", "{82C29DB0-5080-46F1-AB23-AAD87C59DAD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysVentas.Authentication.WebApi", "SysVentas.Authentication.WebApi\SysVentas.Authentication.WebApi.csproj", "{725EA5EE-4DBB-495C-B081-50DE022AC9B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysVentas.Authentication.Infrastructure.Ldap", "SysVentas.Authentication.Infrastructure.Ldap\SysVentas.Authentication.Infrastructure.Ldap.csproj", "{FC71D24D-F210-44F5-A698-BA09FD95BF65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysVentas.Authentication.Domain", "SysVentas.Authentication.Domain\SysVentas.Authentication.Domain.csproj", "{5231DCE7-BF59-419F-9E20-6134C38D285A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysVentas.Authentication.Infrastructure.Data", "SysVentas.Authentication.Infrastructure.Data\SysVentas.Authentication.Infrastructure.Data.csproj", "{B52110F4-F134-47FB-B823-E517B8919D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysVentas.Authentication.Application", "SysVentas.Authentication.Application\SysVentas.Authentication.Application.csproj", "{39C30136-FFF6-45D0-AE04-36A2447F3B9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82C29DB0-5080-46F1-AB23-AAD87C59DAD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C29DB0-5080-46F1-AB23-AAD87C59DAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C29DB0-5080-46F1-AB23-AAD87C59DAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C29DB0-5080-46F1-AB23-AAD87C59DAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{725EA5EE-4DBB-495C-B081-50DE022AC9B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725EA5EE-4DBB-495C-B081-50DE022AC9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725EA5EE-4DBB-495C-B081-50DE022AC9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725EA5EE-4DBB-495C-B081-50DE022AC9B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC71D24D-F210-44F5-A698-BA09FD95BF65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC71D24D-F210-44F5-A698-BA09FD95BF65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC71D24D-F210-44F5-A698-BA09FD95BF65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC71D24D-F210-44F5-A698-BA09FD95BF65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5231DCE7-BF59-419F-9E20-6134C38D285A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5231DCE7-BF59-419F-9E20-6134C38D285A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5231DCE7-BF59-419F-9E20-6134C38D285A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5231DCE7-BF59-419F-9E20-6134C38D285A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B52110F4-F134-47FB-B823-E517B8919D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B52110F4-F134-47FB-B823-E517B8919D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B52110F4-F134-47FB-B823-E517B8919D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B52110F4-F134-47FB-B823-E517B8919D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C30136-FFF6-45D0-AE04-36A2447F3B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C30136-FFF6-45D0-AE04-36A2447F3B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C30136-FFF6-45D0-AE04-36A2447F3B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C30136-FFF6-45D0-AE04-36A2447F3B9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
