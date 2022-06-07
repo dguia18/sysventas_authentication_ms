@@ -15,6 +15,10 @@ public class TokenController : ControllerBase
     public IActionResult Get([FromQuery] IBuildTokenService.Request request)
     {
         var response = _buildTokenService.Handle(request);
-        return Ok(response);
+        return Ok(new
+        {
+            AccessToken = response.Token,
+            ExpiresIn = response.ExpiresIn
+        });
     }
 }
