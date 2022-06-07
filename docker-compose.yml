@@ -1,0 +1,27 @@
+version: "3.3"
+services:
+  web.authentication:    
+    container_name: sisventas_authentication_ms
+    build: .
+    environment:
+      ConnectionString: Server=sql.data.authentication;User=sa;Password=Pass@word;DataBase=SisVentasAuthentication;
+      LdapParameters: 
+        OrganizationalUnit:sa
+        Domain:arqsoft.unal.edu.co
+      LdapParametersConnection: 
+        Host:localhost
+        Port:389
+    ports:
+      - "5004:80"
+    depends_on:
+      - sql.data.authentication
+  
+  sql.data.authentication:
+    image: mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04
+    container_name: sisventas_authentication_db
+    environment: 
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "1434:1433"
+    
