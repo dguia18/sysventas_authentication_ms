@@ -14,4 +14,8 @@ public class UserRepository: IUserRepository
     {
         return _dbContext.Users.FirstOrDefault(predicate)!;
     }
+    public void CommitChanges()
+    {
+        _dbContext.SaveChanges();
+    }
 }

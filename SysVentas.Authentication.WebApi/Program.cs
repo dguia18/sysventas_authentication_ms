@@ -24,7 +24,7 @@ builder.Services.Configure<LdapParameters>(builder.Configuration.GetSection("Lda
 builder.Services.Configure<LdapConnectionParameters>(builder.Configuration.GetSection("LdapParametersConnection"));
 
 builder.Services.AddDbContext<AuthenticationContext>((_, optionsBuilder) => optionsBuilder
-    .UseInMemoryDatabase("AuthenticationDb"));
+    .UseSqlServer(builder.Configuration["ConnectionString"]));
 
 builder.Services.AddScoped<IValidateUserAdService, ValidateUserAdService>();
 builder.Services.AddScoped<IBuildDistinguishedNameService, BuildDistinguishedNameService>();
@@ -51,9 +51,9 @@ if (app.Environment.IsDevelopment())
 var scope = app.Services.CreateScope();
 
 var context = scope.ServiceProvider.GetRequiredService<AuthenticationContext>();
-// context.Database.Migrate();
-var inicializarDesarrollo = new Initialize(context);
-inicializarDesarrollo.Handle();
+context.Database.Migrate();
+var initialize = new Initialize(context);
+initialize.Handle();
 
 app.UseMiddleware<ExceptionMiddleware>();
 

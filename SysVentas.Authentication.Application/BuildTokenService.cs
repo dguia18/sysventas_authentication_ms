@@ -28,6 +28,9 @@ public class BuildTokenService : IBuildTokenService
             throw new SysVentasApplicationException($"Usuario y contraseña no coinciden con un usuario registrado.");
         }
         var expiry = DateTime.UtcNow.AddHours(8);
-        return new IBuildTokenService.Response(_tokenProvider.CreateToken(user, expiry), expiry.Millisecond);
+        var token = _tokenProvider.CreateToken(user, expiry);
+        user.SetToken(token);
+        _userRepository.CommitChanges();
+        return new IBuildTokenService.Response(token, expiry.Millisecond);
     }
 }

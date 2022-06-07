@@ -40,8 +40,7 @@ namespace SysVentas.Authentication.WebApi.Authentication
                     Expires = expiry.ToUniversalTime(),
                     Subject = identity
                 });
-            user.SetToken(tokenHandler.WriteToken(token));
-            return user.Token;
+            return tokenHandler.WriteToken(token);
         }
 
         public TokenProviderValidationParameters GetValidationParameters()

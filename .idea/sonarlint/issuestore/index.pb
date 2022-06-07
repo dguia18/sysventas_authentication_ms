@@ -1,12 +1,8 @@
 
 
 `SysVentas.Authentication.Infrastructure.Ldap/SysVentas.Authentication.Infrastructure.Ldap.csproj,a\6\a6dba9baf915b39c165e452945036502db992f65
-r
-BSysVentas.Authentication.Domain/Models/Services/IUserRepository.cs,d\1\d1fec1fb4daec82357d02f16ab6da93238d028c8
 €
 PSysVentas.Authentication.Application/SysVentas.Authentication.Application.csproj,c\5\c5935f5c56ec24f844d54a7500a2e2e0b427e91e
-
-`SysVentas.Authentication.Infrastructure.Data/SysVentas.Authentication.Infrastructure.Data.csproj,0\8\08629f29b804b9f7fed315b28b5ab54341af4ebe
 z
 JSysVentas.Authentication.Domain/Services/IBuildDistinguishedNameService.cs,8\7\872764dcfc6dcf9a294424792ed7696ebb957d87
 l
@@ -19,7 +15,5 @@ n
 >SysVentas.Authentication.WebApi/Properties/launchSettings.json,2\a\2a9d5b388130bef7d08c584cd231e5cf4780602b
 v
 FSysVentas.Authentication.Domain/SysVentas.Authentication.Domain.csproj,0\a\0a9db091d1e5f1d85466bd6215a837fc7c6fa708
-`
-0SysVentas.Authentication.WebApi/appsettings.json,0\f\0f5f0d970e9bd4526320e6f766df8d3fd789e518
 b
 2SysVentas.Authentication.WebApi/WeatherForecast.cs,d\2\d28b74c7341f944495930a9cacb07c7628215822

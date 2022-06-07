@@ -5,6 +5,7 @@ namespace SysVentas.Authentication.Infrastructure.Data;
 public class AuthenticationContext : DbContext
 {
     public DbSet<User> Users { get; set; }
+    public static string DefaultSchema => "Authentication";
     public AuthenticationContext(DbContextOptions options):base(options)
     {
         
@@ -13,6 +14,7 @@ public class AuthenticationContext : DbContext
     {
         modelBuilder.Entity<User>(builder =>
         {
+            builder.ToTable(nameof(User),DefaultSchema);
             builder.HasIndex(t => t.Id);
             builder.Property(t => t.Email).IsRequired();
             builder.Property(t => t.Nombre).IsRequired();

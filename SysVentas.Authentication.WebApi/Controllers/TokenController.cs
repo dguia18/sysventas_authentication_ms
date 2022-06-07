@@ -11,8 +11,8 @@ public class TokenController : ControllerBase
     {
         _buildTokenService = buildTokenService;
     }
-    [HttpGet]
-    public IActionResult Get([FromQuery] IBuildTokenService.Request request)
+    [HttpPost]
+    public IActionResult Get(IBuildTokenService.Request request)
     {
         var response = _buildTokenService.Handle(request);
         return Ok(new
