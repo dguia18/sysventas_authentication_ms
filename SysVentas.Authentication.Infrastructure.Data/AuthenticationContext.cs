@@ -15,6 +15,7 @@ public class AuthenticationContext : DbContext
         {
             builder.HasIndex(t => t.Id);
             builder.Property(t => t.Email).IsRequired();
+            builder.Property(t => t.Nombre).IsRequired();
             builder.HasIndex(t => t.Email).IsUnique();
             builder.Property(t => t.Password).IsRequired();
         });

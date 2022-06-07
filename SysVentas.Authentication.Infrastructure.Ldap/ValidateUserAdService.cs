@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Novell.Directory.Ldap;
 using SysVentas.Authentication.Domain.Services;
+using SysVentas.Authentication.Infrastructure.Ldap.Base;
 namespace SysVentas.Authentication.Infrastructure.Ldap;
 
 public class ValidateUserAdService : IValidateUserAdService
@@ -15,13 +16,20 @@ public class ValidateUserAdService : IValidateUserAdService
     }
     public bool Handle(string commonName, string password)
     {
-        var distinguishedName = _buildDistinguishedNameService.Handle(commonName);
-        using var connection = new LdapConnection
+        try
         {
-            SecureSocketLayer = false
-        };
-        connection.Connect(_ldapConnectionParameters.Host, _ldapConnectionParameters.Port);
-        connection.Bind(distinguishedName, password);
-        return connection.Bound;
+            var distinguishedName = _buildDistinguishedNameService.Handle(commonName);
+            using var connection = new LdapConnection
+            {
+                SecureSocketLayer = false
+            };
+            connection.Connect(_ldapConnectionParameters.Host, _ldapConnectionParameters.Port);
+            connection.Bind(distinguishedName, password);
+            return connection.Bound;
+        }
+        catch (Exception exception)
+        {
+            throw new SysVentasInfrastructureLdapException(exception.Message);
+        }
     }
 }

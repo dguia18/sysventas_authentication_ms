@@ -25,10 +25,10 @@ namespace SysVentas.Authentication.WebApi.Authentication
             var tokenHandler = new JwtSecurityTokenHandler();
             var identity = new ClaimsIdentity(new List<Claim>()
                 {
-                    new Claim(ClaimTypes.Name, $"{user.Nombre}"),
-                    new Claim(ClaimTypes.Email, $"{user.Email}"),
-                    new Claim(ClaimTypes.Role, "Administrador"),
-                    new Claim(ClaimTypes.PrimarySid, user.Id.ToString())
+                    new(ClaimTypes.Name, $"{user.Nombre}"),
+                    new(ClaimTypes.Email, $"{user.Email}"),
+                    new(ClaimTypes.Role, "Administrador"),
+                    new(ClaimTypes.PrimarySid, user.Id.ToString())
                 }, "Custom"
             );
             SecurityToken token = tokenHandler.CreateJwtSecurityToken(
@@ -40,7 +40,8 @@ namespace SysVentas.Authentication.WebApi.Authentication
                     Expires = expiry.ToUniversalTime(),
                     Subject = identity
                 });
-            return tokenHandler.WriteToken(token);
+            user.SetToken(tokenHandler.WriteToken(token));
+            return user.Token;
         }
 
         public TokenProviderValidationParameters GetValidationParameters()

@@ -6,12 +6,15 @@ using SysVentas.Authentication.Domain.Models.Services;
 using SysVentas.Authentication.Domain.Services;
 using SysVentas.Authentication.Domain.Services.Security;
 using SysVentas.Authentication.Infrastructure.Data;
+using SysVentas.Authentication.Infrastructure.Data.initialization;
 using SysVentas.Authentication.Infrastructure.Ldap;
 using SysVentas.Authentication.WebApi.Authentication;
+using SysVentas.Authentication.WebApi.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddCors();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -29,8 +32,8 @@ builder.Services.AddScoped<IBuildTokenService, BuildTokenService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEncryptService, EncryptWithSha256Service>();
 
-var tokenProvider = new JwtProvider ("issuer", "audience");
-builder.Services.AddSingleton<ITokenProvider> (tokenProvider);
+var tokenProvider = new JwtProvider("issuer", "audience");
+builder.Services.AddSingleton<ITokenProvider>(tokenProvider);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false;
@@ -45,8 +48,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+var scope = app.Services.CreateScope();
 
-app.UseHttpsRedirection();
+var context = scope.ServiceProvider.GetRequiredService<AuthenticationContext>();
+// context.Database.Migrate();
+var inicializarDesarrollo = new Initialize(context);
+inicializarDesarrollo.Handle();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 

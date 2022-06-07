@@ -1,3 +1,4 @@
+using SysVentas.Authentication.Application.Base;
 using SysVentas.Authentication.Application.TokenProvider;
 using SysVentas.Authentication.Domain.Models.Services;
 using SysVentas.Authentication.Domain.Services;
@@ -24,7 +25,7 @@ public class BuildTokenService : IBuildTokenService
                                                            t.Password == _encryptService.Handle(request.Password));
         if (user == null)
         {
-            throw new ApplicationException($"Usuario y contraseña no coinciden con un usuario registrado.");
+            throw new SysVentasApplicationException($"Usuario y contraseña no coinciden con un usuario registrado.");
         }
         var expiry = DateTime.UtcNow.AddHours(8);
         return new IBuildTokenService.Response(_tokenProvider.CreateToken(user, expiry), expiry.Millisecond);
