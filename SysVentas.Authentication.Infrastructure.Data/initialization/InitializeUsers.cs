@@ -7,6 +7,7 @@ public static class InitializeUsers
     public static void InitializeUser(this AuthenticationContext context)
     {
         var encrypt = new EncryptWithSha256Service();
+        if (context.Users.Any()) return;
         var userDuvan = new User()
         {
             Email = "dguia@unicesar.edu.co",
