@@ -2,7 +2,7 @@ version: "3.3"
 services:
   web.authentication:    
     container_name: sisventas_authentication_ms
-    build: .
+    image: ivancontry/sysventas_authentication_ms:1.0
     environment:
       ConnectionString: Server=sql.data.authentication;User=sa;Password=Pass@word;DataBase=SisVentasAuthentication;
       LdapParameters: 
