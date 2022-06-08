@@ -5,8 +5,6 @@
 PSysVentas.Authentication.Application/SysVentas.Authentication.Application.csproj,c\5\c5935f5c56ec24f844d54a7500a2e2e0b427e91e
 z
 JSysVentas.Authentication.Domain/Services/IBuildDistinguishedNameService.cs,8\7\872764dcfc6dcf9a294424792ed7696ebb957d87
-l
-<SysVentas.Authentication.WebApi/appsettings.Development.json,7\7\777c59981e9a53f80e22fffa7e83a25b6eb8d760
 ]
 -SysVentas.Authentication.WebApi/.dockerignore,a\5\a573f42b954d30a5a1a75ffbb731d4fcbc0892bc
 r
@@ -33,14 +31,8 @@ t
 DSysVentas.Authentication.Application/TokenProvider/ITokenProvider.cs,1\d\1d306769b08a461f63dbecb7e4c8b9e050f792b1
 r
 BSysVentas.Authentication.Application/TokenProvider/JsonWebToken.cs,5\0\50365e86a9fb924a3a6ecc48223c90dc067bd18d
-}
-MSysVentas.Authentication.Infrastructure.Ldap/BuildDistinguishedNameService.cs,6\0\608bc48f2ed43711ad6bd15eee1c026931ca2b31
-x
-HSysVentas.Authentication.Infrastructure.Ldap/LdapConnectionParameters.cs,f\c\fcb30474e2f708133608d772a15eb8359765cd7d
 n
 >SysVentas.Authentication.Infrastructure.Ldap/LdapParameters.cs,0\b\0b8147f4b48deb2b70a67059213935b7358bb538
-u
-ESysVentas.Authentication.Infrastructure.Ldap/ValidateUserAdService.cs,b\3\b350ecd7be8fa972454f1900430ecfe25ff35b5a
 ^
 .SysVentas.Authentication.Domain/Models/User.cs,f\1\f18c047317254d2771befc81fcb9288bf04d2a67
 â
@@ -53,8 +45,6 @@ q
 ASysVentas.Authentication.WebApi/Infrastructure/ErrorValidation.cs,2\c\2c9703038b57f481974d609d6149728d30374285
 u
 ESysVentas.Authentication.WebApi/Infrastructure/ExceptionMiddleware.cs,3\f\3f1091eb28e07708c2bf826b30115a4a7f4bd083
-~
-NSysVentas.Authentication.Infrastructure.Data/initialization/InitializeUsers.cs,3\1\31683038e5123acce567158755f1fd05d3982744
 n
 >SysVentas.Authentication.WebApi/Controllers/TokenController.cs,b\c\bc6c5364422293b42164493c2d07b3356f4fe3cf
 ê
@@ -67,5 +57,3 @@ WSysVentas.Authentication.Infrastructure.Data/Migrations/20220607215051_InitialC
 `SysVentas.Authentication.Infrastructure.Data/Migrations/20220607215051_InitialCreate.Designer.cs,3\3\3329e8f9dc9e0dd5a384b59238f741a9ca9112b0
 ç
 ]SysVentas.Authentication.Infrastructure.Data/Migrations/AuthenticationContextModelSnapshot.cs,0\9\09c77b6b25dc28691a50127a8b519b74d7db5069
-Z
-*SysVentas.Authentication.WebApi/Program.cs,8\2\82d012174471ab3002022163aaaf393d5fed7121

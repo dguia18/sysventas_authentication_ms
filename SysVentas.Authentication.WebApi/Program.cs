@@ -15,13 +15,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddCors();
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.Configure<LdapParameters>(builder.Configuration.GetSection("LdapParameters"));
-builder.Services.Configure<LdapConnectionParameters>(builder.Configuration.GetSection("LdapParametersConnection"));
+builder.Configuration.AddEnvironmentVariables();
+builder.Services.Configure<LdapParameters>(opt =>
+    builder.Configuration.GetSection("LdapParameters").Bind(opt)
+);
+builder.Services.Configure<LdapConnectionParameters>(opt =>
+    builder.Configuration.GetSection("LdapParametersConnection").Bind(opt)
+);
 
 builder.Services.AddDbContext<AuthenticationContext>((_, optionsBuilder) => optionsBuilder
     .UseSqlServer(builder.Configuration["ConnectionString"]));
@@ -41,7 +47,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

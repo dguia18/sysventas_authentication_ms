@@ -1,22 +1,20 @@
-version: "3.3"
+version: '2.1'
 services:
-  web.authentication:    
+  sisventas.authentication:    
     container_name: sisventas_authentication_ms
-    image: ivancontry/sysventas_authentication_ms:1.0
+    image: duvaninho/sisventas_authentication_ms:1.0
     environment:
-      ConnectionString: Server=sql.data.authentication;User=sa;Password=Pass@word;DataBase=SisVentasAuthentication;
-      LdapParameters: 
-        OrganizationalUnit:sa
-        Domain:arqsoft.unal.edu.co
-      LdapParametersConnection: 
-        Host:localhost
-        Port:389
+      - ConnectionString= Server= sisventas.authentication.data;User=sa;Password=Pass@word;DataBase=SisVentasAuthentication;
+      - LdapParameters:OrganizationalUnit=sa
+      - LdapParameters:Domain=arqsoft.unal.edu.co
+      - LdapParametersConnection:Host=arqsoft.unal.edu.co
+      - LdapParametersConnection:Port=389
     ports:
       - "5004:80"
     depends_on:
-      - sql.data.authentication
+      - sisventas.authentication.data
   
-  sql.data.authentication:
+  sisventas.authentication.data:
     image: mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04
     container_name: sisventas_authentication_db
     environment: 

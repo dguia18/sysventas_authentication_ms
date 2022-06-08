@@ -12,7 +12,7 @@ public class ValidateUserAdService : IValidateUserAdService
     public ValidateUserAdService(IBuildDistinguishedNameService buildDistinguishedNameService, IOptions<LdapConnectionParameters> options)
     {
         _buildDistinguishedNameService = buildDistinguishedNameService;
-        _ldapConnectionParameters = options.Value;
+        _ldapConnectionParameters = options.Value ?? throw new ArgumentNullException(nameof(options));
     }
     public bool Handle(string commonName, string password)
     {
